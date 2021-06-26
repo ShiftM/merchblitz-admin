@@ -35,10 +35,9 @@
     "font-awesome": "^4.7.0",
     "moment-timezone": "^0.5.28",
     "node-sass": "^6.0.1",
-    "sass-loader": "^10",
-
     "perfect-scrollbar": "^1.5.0",
     "qrcode.vue": "^1.7.0",
+    "sass-loader": "^10",
     "simple-line-icons": "^2.4.1",
     "sweetalert2": "^9.9.0",
     "vue": "^2.6.11",

@@ -1,0 +1,127 @@
+//override
+
+//textarea
+textarea {
+    resize: none;
+}
+
+//nav-tabs
+button {
+    &.nav-link {
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &.navbar-toggler {
+        &:focus {
+            border-color: var(--main-violet);
+            outline: 0;
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(66, 25, 105, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(66, 25, 105, 0.25);
+        }
+    }
+}
+
+//table
+table {
+    thead,
+    tbody {
+        tr {
+            th,
+            td {
+                position: relative;
+                
+                &:first-of-type {
+                    padding-left: 1.25rem;
+                }
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &.table {
+        .tfoot-light {
+            td {
+                color: #495057;
+                background-color: #e9ecef;
+                border-color: #dee2e6;
+            }
+        }
+    }
+
+    &.item-view-table {
+        tbody > tr {
+            height: 4rem;
+        }
+    }
+}
+
+//sidebar
+.sidebar {
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.75rem 0.65rem !important;
+
+        .nav-icon {
+            font-size: 0.75rem !important;
+            margin: 0 0.35rem 0 0 !important;
+        }
+    }
+
+    .nav-dropdown {
+        .nav-dropdown-items {
+            li {
+                a {
+                    padding-left: 12px !important;
+                }
+            }
+        }
+    }
+}
+
+//vue datetime picker
+.field {
+    input {
+        &.field-input {
+            border: 1px solid #e4e7ea !important;
+        }
+    }
+
+    &.is-focused {
+        input {
+            border-color: #8ad4ee !important;
+            // outline: 0;
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25) !important;
+            box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25) !important;
+        }
+    }
+}
+
+
+//analytics filter - vue datetime picker
+.filters-cont {
+    .field {
+        input {
+            &.field-input {
+                font-size: .75rem !important;
+                height: calc(1.5em + 0.75rem + 2px) !important;
+                min-height: auto !important;
+            }
+        }
+    
+        label {
+            &.field-label {
+                top: 2px !important;
+            }
+        }
+    }
+}
+
+//flex
+.flex-row {
+    flex-flow: row !important;
+}

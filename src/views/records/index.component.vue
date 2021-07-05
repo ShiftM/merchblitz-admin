@@ -101,7 +101,7 @@
                   </td>
                   <td>
                     <template>
-                      <router-link
+                      <!-- <router-link
                         :to="{
                           name: 'administrator-edit',
                           params: { id: value.id },
@@ -110,7 +110,7 @@
                       >
                         Edit Info
                       </router-link>
-                      |
+                      | -->
                       <a
                         href="#"
                         @click="archive(value.id)"

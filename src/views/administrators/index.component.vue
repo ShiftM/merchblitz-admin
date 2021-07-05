@@ -1,10 +1,10 @@
 <template>
   <div class="card-body table-responsive">
-    <router-link :to="{ name: 'administrator-create' }">
+    <!-- <router-link :to="{ name: 'administrator-create' }">
       <button type="button" class="btn btn-success mb-2 add-button">
         <i class="fa fa-plus"></i>&nbsp; Add Administrator
       </button>
-    </router-link>
+    </router-link> -->
     <div class="nav-tabs custom-tabs">
       <div class="nav-item primary">
         <button

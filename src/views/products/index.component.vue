@@ -1,10 +1,10 @@
 <template>
   <div class="card-body table-responsive">
-    <router-link :to="{ name: 'administrator-create' }">
+    <!-- <router-link :to="{ name: 'administrator-create' }">
       <button type="button" class="btn btn-success mb-2 add-button">
         <i class="fa fa-plus"></i>&nbsp; Add Product
       </button>
-    </router-link>
+    </router-link> -->
     <div class="nav-tabs custom-tabs">
       <div class="nav-item primary">
         <button
@@ -25,7 +25,7 @@
     <div class="tab-content">
       <div class="col-12 mt-3">
         <div class="input-group">
-          <input
+          <!-- <input
             v-model="filter.name"
             class="form-control"
             id="item"
@@ -36,11 +36,11 @@
             @input="suggest({ name: $event.target.value })"
             @change="suggest({ name: $event.target.value })"
             @keyup.enter="search()"
-          />
+          /> -->
           <span class="input-group-append">
-            <button class="btn btn-secondary" type="button" @click="search({})">
+            <!-- <button class="btn btn-secondary" type="button" @click="search({})">
               <i class="icon-magnifier"></i>
-            </button>
+            </button> -->
             <button class="btn btn-danger" @click="clear()">
               <i class="icon-refresh"></i>
             </button>

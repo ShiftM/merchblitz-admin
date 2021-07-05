@@ -2,7 +2,7 @@
   <div class="card-body table-responsive">
     <router-link :to="{ name: 'administrator-create' }">
       <button type="button" class="btn btn-success mb-2 add-button">
-        <i class="fa fa-plus"></i>&nbsp; Add Administrator
+        <i class="fa fa-plus"></i>&nbsp; Add Product
       </button>
     </router-link>
     <div class="nav-tabs custom-tabs">
@@ -18,7 +18,7 @@
             active: !filter.has_featured && filter.status_option_id == 1,
           }"
         >
-          Users
+          Cigarrete Variants
         </button>
       </div>
     </div>
@@ -60,15 +60,9 @@
             <thead>
               <tr>
                 <th width="5%">id</th>
-                <th width="10%">Username</th>
-                <th width="10%">First Name</th>
-                <th width="10%">Last Name</th>
-                <th width="20%">Address</th>
-                <th width="10%">Contact Number</th>
-                <th width="10%">G-Cash Number</th>
-                <th width="5%">Program</th>
-                <th width="5%">Region</th>
-                <th width="10%">Date Updated</th>
+                <th width="20%">Cigarrete Variant</th>
+                <th width="10%">Created At</th>
+                <th width="10%">Updated At</th>
                 <th width="10%">Actions</th>
               </tr>
             </thead>
@@ -79,37 +73,13 @@
                     {{ value.id }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.user_name }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.first_name }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.last_name }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{
-                      value.address +
-                      ", " +
-                      value.town_city +
-                      ", " +
-                      value.province
-                    }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.contact_number }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.gcash_number }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.program }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.region.toUpperCase() }}
+                    {{ value.product_name }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.created_at }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.updated_at }}
                   </td>
                   <td>
                     <template>

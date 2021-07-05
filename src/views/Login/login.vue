@@ -137,7 +137,7 @@ export default {
               this.error = responseData;
             } else {
               localStorage.setItem("auth_token", responseData);
-              location.href = "/users";
+              location.href = "/admin-users";
             }
           })
           .catch((err) => {

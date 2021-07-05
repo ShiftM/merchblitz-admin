@@ -1,10 +1,5 @@
 <template>
   <div class="card-body table-responsive">
-    <router-link :to="{ name: 'administrator-create' }">
-      <button type="button" class="btn btn-success mb-2 add-button">
-        <i class="fa fa-plus"></i>&nbsp; Add Administrator
-      </button>
-    </router-link>
     <div class="nav-tabs custom-tabs">
       <div class="nav-item primary">
         <button
@@ -18,29 +13,14 @@
             active: !filter.has_featured && filter.status_option_id == 1,
           }"
         >
-          Users
+          Records
         </button>
       </div>
     </div>
     <div class="tab-content">
       <div class="col-12 mt-3">
         <div class="input-group">
-          <input
-            v-model="filter.name"
-            class="form-control"
-            id="item"
-            name="items"
-            size="16"
-            placeholder="Administrator name"
-            list="items"
-            @input="suggest({ name: $event.target.value })"
-            @change="suggest({ name: $event.target.value })"
-            @keyup.enter="search()"
-          />
           <span class="input-group-append">
-            <button class="btn btn-secondary" type="button" @click="search({})">
-              <i class="icon-magnifier"></i>
-            </button>
             <button class="btn btn-danger" @click="clear()">
               <i class="icon-refresh"></i>
             </button>
@@ -60,15 +40,19 @@
             <thead>
               <tr>
                 <th width="5%">id</th>
-                <th width="10%">Username</th>
-                <th width="10%">First Name</th>
-                <th width="10%">Last Name</th>
+                <th width="10%">Store Branch</th>
+                <th width="10%">Store Name</th>
+                <th width="10%">Owner</th>
                 <th width="20%">Address</th>
-                <th width="10%">Contact Number</th>
-                <th width="10%">G-Cash Number</th>
-                <th width="5%">Program</th>
-                <th width="5%">Region</th>
-                <th width="10%">Date Updated</th>
+                <th width="10%">Poster</th>
+                <th width="10%">Grill Talker</th>
+                <th width="5%">Wall Sticker</th>
+                <th width="5%">Cash Mat</th>
+                <th width="10%">Awning</th>
+                <th width="10%">Store Signage</th>
+                <th width="10%">Products</th>
+                <th width="10%">Created At</th>
+
                 <th width="10%">Actions</th>
               </tr>
             </thead>
@@ -79,34 +63,38 @@
                     {{ value.id }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.user_name }}
+                    {{ value.store_branch }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.first_name }}
+                    {{ value.store_name }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.last_name }}
+                    {{ value.store_owner_name }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{
-                      value.address +
-                      ", " +
-                      value.town_city +
-                      ", " +
-                      value.province
-                    }}
+                    {{ value.street + ", " + value.town_city }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.contact_number }}
+                    {{ value.poster }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.gcash_number }}
+                    {{ value.grill_talker }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.program }}
+                    {{ value.wall_sticker }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.region.toUpperCase() }}
+                    {{ value.cash_mat }}
+                  </td>
+
+                  <td class="cell-ellipsis">
+                    {{ value.awning }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.store_signage }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.product_name }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.created_at }}

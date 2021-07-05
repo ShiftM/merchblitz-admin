@@ -6,11 +6,11 @@
                     <div class="card-header">
                         <div class="row h-100 align-items-center">
                             <div class="col-12">
-                                <i class="icon-basket-loaded"></i> Comming Soon
+                                <i class="icon-tag"></i>&nbsp;&nbsp;{{$route.meta.title}}
                             </div>
                         </div>
                     </div>     
-                    <router-view/>   
+                    <router-view/>         
                 </div> 
             </div>
         </div>

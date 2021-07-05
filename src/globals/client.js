@@ -3,7 +3,7 @@ import config from '../config/app.config';
 
 const client = axios.create({
     baseURL: config.api_url,
-    timeout: 30000,
+    timeout: 300000,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -37,7 +37,7 @@ function toSnakeCase(data) {
 
     function loopToSnake(data) {
         var snake;
-        if(isArray(data)){
+        if (isArray(data)) {
             snake = loopArray(data);
         }
         else {
@@ -45,12 +45,12 @@ function toSnakeCase(data) {
             snake = {};
             for (var camel in data) {
 
-                snake[camelToUnderscore(camel)] = data[camel] ;
+                snake[camelToUnderscore(camel)] = data[camel];
 
 
-                if(typeof(data[camel]) == "object" && data[camel]){
+                if (typeof (data[camel]) == "object" && data[camel]) {
 
-                    snake[camelToUnderscore(camel)] =loopToSnake (data[camel]) ;
+                    snake[camelToUnderscore(camel)] = loopToSnake(data[camel]);
                 }
                 if (isArray(data[camel])) {
 
@@ -67,16 +67,15 @@ function toSnakeCase(data) {
 
 }
 
-//response interceptors
+// //response interceptors
 client.interceptors.response.use((response) => {
 
     let auth_token = localStorage.getItem('auth_token');
     if (auth_token) {
-      response.headers['Authorization'] = "Bearer " + auth_token
+        response.headers['api-token'] = auth_token
     }
-    var response = response.data.data;
 
-    return toSnakeCase(response);
+    return response;
 
 }, function (error) {
     // return console.log(error.response);
@@ -88,7 +87,7 @@ client.interceptors.response.use((response) => {
         location.href = '/login';
     } else {
 
-        return error.response.data;
+        return error;
     }
 });
 

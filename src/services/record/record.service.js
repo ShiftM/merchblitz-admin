@@ -1,10 +1,9 @@
 import api from '../../globals/client';
 import config from '../../config/app.config';
-import axios from 'axios'
 
 var promise;
 
-export default class AdministratorService {
+export default class RecordService {
     store(data) {
         promise = api.client.post(config.end_point.admin.management.administrator + '/create', data);
         return promise;
@@ -16,7 +15,8 @@ export default class AdministratorService {
     }
 
     list(data) {
-        promise = api.client.post('api/all-users' + '/' + data.page + '/' + data.per_page, { 'api-token': localStorage.getItem('auth_token') })
+        promise = api.client.post('api/get-reports' + '/' + data.page + '/' + data.per_page, { 'api-token': localStorage.getItem('auth_token') })
+        console.log(promise)
         return promise;
     }
 
@@ -35,7 +35,7 @@ export default class AdministratorService {
         return promise;
     }
 
-    uploadOrganizerLogo(file) {
+    uploadItemImage(file) {
         var bodyFormData = new FormData();
         bodyFormData.append('file', file);
         bodyFormData.append('upload_path', 'eventOrganizers');
@@ -52,4 +52,4 @@ export default class AdministratorService {
     }
 }
 
-export const administratorService = new AdministratorService();
+export const recordService = new RecordService();

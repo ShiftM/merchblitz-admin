@@ -22,6 +22,8 @@ import QuestRouter from "./views/quest/quest.router";
 import CompanyRouter from "./views/companies/company.router";
 import AdministratorRouter from "./views/administrators/administrator.router";
 import SubscriptionRouter from "./views/subscription-plans/subscription-plan.router";
+import ProductsRouter from "./views/products/products.router";
+import RecordsRouter from "./views/records/records.router";
 
 // Containers
 const DefaultContainer = () => import('@/components/containers/DefaultContainer')
@@ -40,10 +42,6 @@ const Booth = () => import('@/views/Booth/list')
 const BoothCrud = () => import('@/views/Booth/crud-booth')
 
 const BoothAssign = () => import('@/views/Events/assign')
-
-const Users = () => import('@/views/Users/list')
-
-const UserEdit = () => import('@/views/Users/edit');
 
 const QuestForm = () => import('@/views/Booth/quest-form');
 
@@ -134,16 +132,16 @@ function configRoutes() {
             level: 'parent'
           }
         },
-        {
-          path: '/users',
-          name: 'Users',
-          component: Users
-        },
-        {
-          path: '/user/edit/:id',
-          name: 'UserEdit',
-          component: UserEdit
-        },
+        // {
+        //   path: '/users',
+        //   name: 'Users',
+        //   component: Users
+        // },
+        // {
+        //   path: '/user/edit/:id',
+        //   name: 'UserEdit',
+        //   component: UserEdit
+        // },
         {
           path: '/booth/quest-form/:id',
           name: 'questFrom',
@@ -304,7 +302,24 @@ function configRoutes() {
             level: 'parent'
           }
         },
-
+        {
+          path: '/products',
+          name: 'Products',
+          component: () => import('./views/products/products.component.vue'),
+          children: ProductsRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
+        {
+          path: '/records',
+          name: 'Records',
+          component: () => import('./views/records/records.component.vue'),
+          children: RecordsRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
       ]
     }
 

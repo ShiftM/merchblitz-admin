@@ -1,9 +1,7 @@
 import {alertService} from "../../services/alert/alert.service";
-import {companyService} from "../../services/company/company.service";
-import {administratorService} from "../../services/admin/administrator.service";
+import {recordService} from "../../services/record/record.service";
 
 import {debounce} from "debounce";
-import {featuredItemService} from "../../services/featured-item/featured-item.service";
 
 export default {
     data: () => {
@@ -11,7 +9,7 @@ export default {
             data: [],
             filter: {
                 paginate: true,
-                per_page: 50,
+                per_page: 20,
                 page: 1,
                 status_option_id: 1,
                 related_status_option_id: 1,
@@ -29,7 +27,7 @@ export default {
 
         // console.log( administratorService.list(this.filter));
 
-        await this.suggest({});
+        // await this.suggest({});
 
     },
     methods: {
@@ -44,9 +42,8 @@ export default {
         async list(data) {
             
         
-            this.data  = await administratorService.list(data)
+            this.data  = await recordService.list(data)
 
-            // await administratorService.list(data);
         },
         async paginate(page) {
             this.filter.page = page;
@@ -55,7 +52,7 @@ export default {
         async archive(id) {
 
             var cb = async () => {
-                await administratorService.delete(id);
+                await recordService.delete(id);
                 this.list(this.filter);
             }
 
@@ -66,7 +63,7 @@ export default {
             var cb = async () => {
                 var inputs = this.data.data.find(el => el.id == id);
                 inputs.status_option_id = 1;
-                await administratorService.update(id, inputs);
+                await recordService.update(id, inputs);
                 this.list(this.filter);
             };
 
@@ -101,25 +98,7 @@ export default {
 
             alertService.withConfirmation(cb, 'Are you sure you want to remove this record as featured?');
         },
-        suggest: debounce(async function (data) {
-            // this.filter.keyword = e.target.value;
-            // this.filter.page = 1;
-            // this.list(this.filter);
-            var filter = {
-                paginate: true,
-                per_page: 10,
-                status_option_id: this.filter.status_option_id,
-                related_status_option_id: 1,
-                with_related_models: true,
-                order_by: 'ASC',
-                order_by_key: 'name',
-            };
 
-            filter = Object.assign(filter, data);
-            this.suggestions = await companyService.list(filter);
-            this.filter.name = data.name;
-
-        }, 800),
     }
 
 }

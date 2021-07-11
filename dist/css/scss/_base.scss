@@ -1,0 +1,31 @@
+//login
+#login {
+    .card-group {
+        .login-form {
+            border-right: none !important;
+        }
+    }
+}
+
+//events
+.event-schedule {
+    &:nth-child(odd) {
+        .card {
+            border: 1px solid #4dbd74;
+        }
+    }
+
+    &:nth-child(even) {
+        .card {
+            border: 1px solid #4d9abd;
+        }
+    }
+}
+
+.upload-logo,
+.upload-images {
+    .img-cont {
+        position: relative;
+        display: inline-block;
+    }
+}

@@ -39,18 +39,25 @@
           <table class="table">
             <thead>
               <tr>
-                <th width="5%">id</th>
-                <th width="10%">Store Branch</th>
-                <th width="10%">Store Name</th>
-                <th width="10%">Owner</th>
-                <th width="20%">Address</th>
-                <th width="10%">Poster</th>
-                <th width="10%">Grill Talker</th>
-                <th width="5%">Wall Sticker</th>
+                <th width="1%">id</th>
+                <th width="1%">Store Branch</th>
+                <th width="1%">Store Name</th>
+                <th width="1%">Owner</th>
+                <th width="5%">Street</th>
+                <th width="5%">Town/City</th>
+                <th width="1%">Contact Number</th>
+                <th width="1%">Banner</th>
+                <th width="1%">Poster</th>
+                <th width="1%">Flange</th>
+                <th width="1%">Grill Talker</th>
+                <th width="1%">Wall Sticker</th>
                 <th width="5%">Cash Mat</th>
-                <th width="10%">Awning</th>
-                <th width="10%">Store Signage</th>
+                <th width="5%">Awning</th>
+                <th width="5">Store Signage</th>
                 <th width="10%">Products</th>
+
+                <th width="10%">Reported By</th>
+
                 <th width="10%">Created At</th>
 
                 <th width="10%">Actions</th>
@@ -72,10 +79,22 @@
                     {{ value.store_owner_name }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.street + ", " + value.town_city }}
+                    {{ value.street }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.town_city }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.contact_number }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    {{ value.banner }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.poster }}
+                  </td>
+                  <td class="cell-ellipsis">
+                    0
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.grill_talker }}
@@ -94,7 +113,34 @@
                     {{ value.store_signage }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.product_name }}
+                    <!-- {{ value.products }} -->
+                    <div class="column" style="display: flex">
+                      <div
+                        v-for="(item, key) in value.products[0]"
+                        :key="item.id"
+                      >
+                        <div
+                          style="
+                            min-width: 200px;
+                            padding: 10px;
+                            margin: 3px;
+                            border-radius: 2px;
+                            border-style: solid;
+                            border-color: grey;
+                            border-width: 1px;
+                          "
+                        >
+                          id: {{ item.id }} {{ item.title }} <br />
+                          Price: PHP {{ item.price }} <br />
+                          Sold Per Week: {{ item["packs-sold"] }}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="cell-ellipsis">
+                    <div style="min-width: 100px; margin: 3px">
+                      id: {{ value.report_by.id }}, {{ value.report_by.name }}
+                    </div>
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.created_at }}
@@ -131,20 +177,19 @@
             <i class="fa fa-folder-open-o" aria-hidden="true"></i> No records
             found
           </p>
-
-          <paginate
-            v-model="filter.page"
-            :page-count="toPageCount(data.total, data.per_page)"
-            :prev-text="'Prev'"
-            :next-text="'Next'"
-            :container-class="'pagination'"
-            :next-class="'page-link'"
-            :prev-class="'page-link'"
-            :page-class="'page-item'"
-            :page-link-class="'page-link'"
-            :click-handler="paginate"
-          ></paginate>
         </div>
+        <paginate
+          v-model="filter.page"
+          :page-count="toPageCount(data.total, data.per_page)"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :next-class="'page-link'"
+          :prev-class="'page-link'"
+          :page-class="'page-item'"
+          :page-link-class="'page-link'"
+          :click-handler="paginate"
+        ></paginate>
       </div>
     </div>
   </div>

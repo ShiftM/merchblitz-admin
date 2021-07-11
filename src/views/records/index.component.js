@@ -24,6 +24,23 @@ export default {
     async mounted() {
 
         await this.list(this.filter);
+        // FORMAT DATA 
+
+        this.data.data.map((val)=>{ 
+            let temp = val.products[0]
+
+            // var newStr = temp.substring(2, temp.length-2);
+            // let g = JSON.parse(newStr);
+
+            // console.log(JSON.parse(val.report_by))
+            val.report_by = JSON.parse(val.report_by)
+            // temp.map((prod) => {
+            //     console.log(prod)
+            //     return prod;
+            // })
+            return val;
+        })
+
 
         // console.log( administratorService.list(this.filter));
 

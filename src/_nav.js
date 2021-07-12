@@ -13,23 +13,18 @@ export default {
     },
     {
       name: 'Stores',
-      url: '/quest',
+      url: '/stores',
       icon: 'icon-location-pin'
     },
     {
       name: 'Inventory',
-      url: '/quest',
+      url: '/inventories',
       icon: 'icon-location-pin'
     },
     {
       name: 'Locations',
-      url: '/quest',
+      url: '/locations',
       icon: 'icon-location-pin'
-    },
-    {
-      name: '',
-      url: '',
-      icon: ''
     },
     {
       name: 'MerchBlitz Records',
@@ -42,11 +37,11 @@ export default {
       url: '/base',
       icon: 'icon-calendar',
       children: [
-        // {
-        //   name: 'MerchBlitz Records',
-        //   url: '/events',
-        //   icon: 'icon-grid'
-        // },
+        {
+          name: 'Comming Soon',
+          url: '',
+          icon: 'icon-grid'
+        },
       ]
     },
 

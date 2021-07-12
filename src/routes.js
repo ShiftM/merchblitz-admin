@@ -24,6 +24,9 @@ import AdministratorRouter from "./views/administrators/administrator.router";
 import SubscriptionRouter from "./views/subscription-plans/subscription-plan.router";
 import ProductsRouter from "./views/products/products.router";
 import RecordsRouter from "./views/records/records.router";
+import InventoriesRouter from "./views/inventories/inventories.router";
+import StoresRouter from "./views/stores/stores.router";
+import LocationsRouter from "./views/locations/locations.router";
 
 // Containers
 const DefaultContainer = () => import('@/components/containers/DefaultContainer')
@@ -316,6 +319,33 @@ function configRoutes() {
           name: 'Records',
           component: () => import('./views/records/records.component.vue'),
           children: RecordsRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
+        {
+          path: '/inventories',
+          name: 'Inventories',
+          component: () => import('./views/inventories/inventories.component.vue'),
+          children: InventoriesRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
+        {
+          path: '/stores',
+          name: 'Stores',
+          component: () => import('./views/stores/stores.component.vue'),
+          children: StoresRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
+        {
+          path: '/locations',
+          name: 'Locations',
+          component: () => import('./views/locations/locations.component.vue'),
+          children: LocationsRouter,
           meta: {
             level: 'parent'
           }

@@ -34,6 +34,9 @@ export default {
 
             // console.log(JSON.parse(val.report_by))
             val.report_by = JSON.parse(val.report_by)
+
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+
             // temp.map((prod) => {
             //     console.log(prod)
             //     return prod;

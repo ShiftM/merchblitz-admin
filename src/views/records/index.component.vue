@@ -39,7 +39,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th width="1%">id</th>
+                <th width="1%">Record id</th>
                 <th width="1%">Store Branch</th>
                 <th width="1%">Store Name</th>
                 <th width="1%">Owner</th>
@@ -67,7 +67,7 @@
               <template v-for="(value, key) in data.data">
                 <tr>
                   <td>
-                    {{ value.id }}
+                    {{ value.record_id }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.store_branch }}
@@ -93,9 +93,7 @@
                   <td class="cell-ellipsis">
                     {{ value.poster }}
                   </td>
-                  <td class="cell-ellipsis">
-                    0
-                  </td>
+                  <td class="cell-ellipsis">0</td>
                   <td class="cell-ellipsis">
                     {{ value.grill_talker }}
                   </td>
@@ -143,7 +141,9 @@
                     </div>
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.created_at }}
+                    <div style="min-width: 250px">
+                      {{ value.created_at }} <br /> (Philippine Standard Time)
+                    </div>
                   </td>
                   <td>
                     <template>

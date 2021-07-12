@@ -3,7 +3,7 @@
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <b-link class="navbar-brand" to="#">
         <img class="navbar-brand-full" :src="base_url+'img/qr-logo.png'" width="50" height="auto" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" :src="base_url+'img/brand/sygnet.svg'" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" :src="base_url+'img/qr-logo.png'" width="30" height="30" alt="CoreUI Logo">
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">

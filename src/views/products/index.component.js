@@ -25,7 +25,7 @@ export default {
 
         await this.list(this.filter);
 
-        await this.suggest({});
+        // await this.suggest({});
 
     },
     methods: {

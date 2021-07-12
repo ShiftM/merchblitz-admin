@@ -2,10 +2,22 @@
 
     padding-left: 40px;
     transition: .3s ease;
+    background-color: #bd2130;
 }
 .sidebar {
     .nav-link {
         transition: .4s ease;
+    }
+    .nav-link.active {
+        background-color:#aa272d;
+    }
+    .nav-link:hover {
+        background-color:#aa272d !important;
+    }
+    background-color: #d43138;
+    .nav-dropdown-toggle::before {
+        color: white;
+
     }
 }
 
@@ -104,7 +116,8 @@
         &.primary {
             .nav-link {
                 &.active {
-                    @include nav-item-active(var(--primary));
+                    background-color: white;
+                    // @include nav-item-active(var(--primary));
                 }
             }
         }
@@ -112,7 +125,8 @@
         &.archive {
             .nav-link {
                 &.active {
-                    @include nav-item-active(var(--danger));
+                    background-color: white;
+                    // @include nav-item-active(var(--danger));
                 }
             }
         }
@@ -120,7 +134,8 @@
         &.featured {
             .nav-link {
                 &.active {
-                    @include nav-item-active(var(--yellow));
+                    background-color: white;
+                    // @include nav-item-active(var(--yellow));
                 }
             }
         }

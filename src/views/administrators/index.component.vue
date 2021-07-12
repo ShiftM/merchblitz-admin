@@ -25,7 +25,7 @@
     <div class="tab-content">
       <div class="col-12 mt-3">
         <div class="input-group">
-          <input
+          <!-- <input
             v-model="filter.name"
             class="form-control"
             id="item"
@@ -36,7 +36,7 @@
             @input="suggest({ name: $event.target.value })"
             @change="suggest({ name: $event.target.value })"
             @keyup.enter="search()"
-          />
+          /> -->
           <span class="input-group-append">
             <button class="btn btn-secondary" type="button" @click="search({})">
               <i class="icon-magnifier"></i>

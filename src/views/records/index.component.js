@@ -27,27 +27,10 @@ export default {
         // FORMAT DATA 
 
         this.data.data.map((val)=>{ 
-            let temp = val.products[0]
-
-            // var newStr = temp.substring(2, temp.length-2);
-            // let g = JSON.parse(newStr);
-
-            // console.log(JSON.parse(val.report_by))
             val.report_by = JSON.parse(val.report_by)
-
             val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
-
-            // temp.map((prod) => {
-            //     console.log(prod)
-            //     return prod;
-            // })
             return val;
         })
-
-
-        // console.log( administratorService.list(this.filter));
-
-        // await this.suggest({});
 
     },
     methods: {
@@ -60,8 +43,6 @@ export default {
             await this.list(this.filter);
         },
         async list(data) {
-            
-        
             this.data  = await recordService.list(data)
             this.data.data = this.data.data.reverse()
         },

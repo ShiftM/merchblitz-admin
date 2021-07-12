@@ -28,4 +28,12 @@ export default [
     }
 
   },
+  {
+    path: prefix+"/:id/view",
+    name: 'records-view',
+    component: () => import('./form.component.vue'),
+    meta: {
+      title: 'View Record'
+    }
+  },
 ];

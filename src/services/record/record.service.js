@@ -20,8 +20,8 @@ export default class RecordService {
         return promise;
     }
 
-    show(id, data) {
-        promise = api.client.post(config.end_point.admin.management.administrator + '/' + id, { params: data });
+    show(data) {
+        promise = api.client.post('api/get-store-image' + '/' + data + '/0/10' , { 'api-token': localStorage.getItem('auth_token') });
         return promise;
     }
 

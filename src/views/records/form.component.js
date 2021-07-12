@@ -10,6 +10,7 @@ import moment from "moment";
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 import VueTelInput from 'vue-tel-input'
+import {recordService} from "../../services/record/record.service";
 
 Vue.use(CKEditor);
 Vue.use(VueTelInput)
@@ -48,6 +49,7 @@ export default {
             number: '',
             password: '',
         },
+        images:[],
         info :{
             adminType: [
                 {id: 1, name: 'Super User', slug: 'super-user'},
@@ -62,6 +64,10 @@ export default {
         };
     },
     methods: {
+        async getImages(data) {
+            this.images  = await recordService.show(data)
+        },
+
         cancel() {
             this.$router.go(-1);
         },
@@ -99,28 +105,6 @@ export default {
             }
         }
         alert.withConfirmation(cb,'Are you sure you want to add this administrator?');
-
-
-        // return administrator.store(this.data).then(
-        //     success => {
-        //     this.$swal(
-        //         {
-        //         title: "Success!",
-        //         icon: "success",
-        //         text: "Successfully Saved!",
-        //         type: "success",
-        //         allowOutsideClick: false
-        //         })
-        //         .then(response => {
-        //             location.href = '/admin-users';
-        //         });
-
-        //     },
-        //     fail => {
-        //     this.errors = fail.errors;
-        //     this.$swal("Error!", "Please fill up all required fields.", "error");
-        //     }
-        // );
         },
         updateEvent() {
         // this.convertTimeToDateTime(this.data.eventDays);
@@ -143,102 +127,12 @@ export default {
             })
 
         },
-        uploadOrganizer(e) {
-        var files = e.target.files[0];
-        return administrator.uploadOrganizerLogo(files).then(success => {
-            this.data.organizer.imageUrl = success.data.data.fullPath;
-        });
-        },
-
-        uploadImages(e) {
-        var selectedFiles = e.target.files;
-        for (var a = 0; a < selectedFiles.length; a++) {
-            administrator.uploadEventImages(selectedFiles[a]).then(success => {
-            this.data.eventImages.push({
-                "path": success.data.data.path,
-                "fileName": success.data.data.fileName,
-                "fullPath": success.data.data.fullPath
-            });
-            });
-
-        }
-        },
-
-        removeOrganizerLogo() {
-        this.data.organizer.imageUrl = '';
-        const input = this.$refs.orgLogo;
-        input.type = 'text';
-        input.type = 'file';
-        },
-
-        removeImage(index) {
-        this.data.eventImages.splice(index, 1);
-        const img = this.$refs.eventImage;
-        img.type = 'text';
-        img.type = 'file';
-        },
-
-        getEventInfo() {
-        var id = this.$route.params.id;
-        return administrator.show(id).then(success => {
-            // console.log(success);
-            this.data = success;
-            this.data.password = '';
-            // this.convertIsoToDateTime(this.data);
-            // console.log(this.data);
-        })
-        },
-        validateMainForm(){
-            this.errors = {}
-            var err = 0
-            if(!this.data.name){
-                this.errors.name = "Field required.";
-                err++;
-            }
-            if(!this.data.email){
-                this.errors.email = "Field required.";
-                err++;
-            } else {
-                // var result = `/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/`;
-                if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.data.email))) {
-                    err++;
-                    this.errors.email = "Invalid email.";
-                }
-            }
-            if(!this.data.first_name){
-                this.errors.first_name = "Field required.";
-                err++;
-            }
-            if(!this.data.last_name){
-                this.errors.last_name = "Field required.";
-                err++;
-            }
-            // if(!this.data.number){
-            //     this.errors.number = "Field required.";
-            //     err++;
-            // }
-            if (this.data.password != this.data.password1) {
-                this.errors.password = "Passwords dont match.";
-                this.errors.password1 = "";
-                err++;
-            }
-
-            if(!this.data.password){
-                this.errors.password = "Field required.";
-                err++;
-            }
-            if(!this.data.password1){
-                this.errors.password1 = "Field required.";
-                err++;
-            }
-
-
-            return err > 0? false : true;
-        },
     },
-    mounted() {
-        if (this.$route.params.id) {
-        this.getEventInfo();
-        }
+    async mounted() {
+        // if (this.$route.params.id) {
+        // this.getEventInfo();
+        // }
+        await this.getImages(this.$route.params.id);
+        this.data = this.$route.params.data
     }
 };

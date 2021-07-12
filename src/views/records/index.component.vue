@@ -148,16 +148,18 @@
                   </td>
                   <td class="cell-ellipsis">
                     <div style="min-width: 140px">
-                      Long: {{ value.long != null ? value.long : 'Not Recorded'}} <br />
-                      Lat: {{ value.lat != null ? value.lat : 'Not Recorded'}}
+                      Long:
+                      {{ value.long != null ? value.long : "Not Recorded" }}
+                      <br />
+                      Lat: {{ value.lat != null ? value.lat : "Not Recorded" }}
                     </div>
                   </td>
                   <td>
                     <template>
                       <router-link
                         :to="{
-                          name: '',
-                          params: { id: value.id },
+                          name: 'records-view',
+                          params: { id: value.id, data: value },
                         }"
                         tag="a"
                       >

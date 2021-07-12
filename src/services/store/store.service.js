@@ -15,7 +15,7 @@ export default class StoreService {
     }
 
     list(data) {
-        promise = api.client.post('api/get-reports' + '/' + data.page + '/' + data.per_page, { 'api-token': localStorage.getItem('auth_token') })
+        promise = api.client.post('api/get-stores' + '/' + data.page + '/' + data.per_page, { 'api-token': localStorage.getItem('auth_token') })
         return promise;
     }
 

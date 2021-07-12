@@ -55,11 +55,9 @@
                 <th width="5%">Awning</th>
                 <th width="5">Store Signage</th>
                 <th width="10%">Products</th>
-
                 <th width="10%">Reported By</th>
-
                 <th width="10%">Created At</th>
-
+                <th width="10%">Location</th>
                 <th width="10%">Actions</th>
               </tr>
             </thead>
@@ -67,7 +65,7 @@
               <template v-for="(value, key) in data.data">
                 <tr>
                   <td>
-                    {{ value.record_id }}
+                    {{ value.id }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.store_branch }}
@@ -93,7 +91,9 @@
                   <td class="cell-ellipsis">
                     {{ value.poster }}
                   </td>
-                  <td class="cell-ellipsis">0</td>
+                  <td class="cell-ellipsis">
+                    {{ value.flange }}
+                  </td>
                   <td class="cell-ellipsis">
                     {{ value.grill_talker }}
                   </td>
@@ -142,21 +142,28 @@
                   </td>
                   <td class="cell-ellipsis">
                     <div style="min-width: 250px">
-                      {{ value.created_at }} <br /> (Philippine Standard Time)
+                      {{ value.created_at }} <br />
+                      (Philippine Standard Time)
+                    </div>
+                  </td>
+                  <td class="cell-ellipsis">
+                    <div style="min-width: 140px">
+                      Long: {{ value.long != null ? value.long : 'Not Recorded'}} <br />
+                      Lat: {{ value.lat != null ? value.lat : 'Not Recorded'}}
                     </div>
                   </td>
                   <td>
                     <template>
-                      <!-- <router-link
+                      <router-link
                         :to="{
-                          name: 'administrator-edit',
+                          name: '',
                           params: { id: value.id },
                         }"
                         tag="a"
                       >
-                        Edit Info
+                        See Images
                       </router-link>
-                      | -->
+                      |
                       <a
                         href="#"
                         @click="archive(value.id)"

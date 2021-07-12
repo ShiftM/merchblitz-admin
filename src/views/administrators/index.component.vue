@@ -38,9 +38,9 @@
             @keyup.enter="search()"
           /> -->
           <span class="input-group-append">
-            <button class="btn btn-secondary" type="button" @click="search({})">
+            <!-- <button class="btn btn-secondary" type="button" @click="search({})">
               <i class="icon-magnifier"></i>
-            </button>
+            </button> -->
             <button class="btn btn-danger" @click="clear()">
               <i class="icon-refresh"></i>
             </button>
@@ -68,7 +68,7 @@
                 <th width="10%">G-Cash Number</th>
                 <th width="5%">Program</th>
                 <th width="5%">Region</th>
-                <th width="10%">Date Updated</th>
+                <th width="10%">Date Created</th>
                 <th width="10%">Actions</th>
               </tr>
             </thead>

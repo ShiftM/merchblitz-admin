@@ -13,7 +13,7 @@
             active: !filter.has_featured && filter.status_option_id == 1,
           }"
         >
-          Stores
+          Records
         </button>
       </div>
     </div>
@@ -39,18 +39,10 @@
           <table class="table">
             <thead>
               <tr>
-                <th width="25%">Record id</th>
-                <th width="25%">Store Branch</th>
-                <th width="25%">Store Name</th>
-                <th width="25%">Owner Name</th>
-                <th width="25%">Age</th>
-                <th width="25%">Contact Number</th>
-                <th width="25%">House Number</th>
-                <th width="25%">Street</th>
-                <th width="25%">Barangay</th>
-                <th width="25%">Town City</th>
-                <th width="25%">Created At</th>
-                <th width="25%">Actions</th>
+                <th width="1%">Version</th>
+                <th width="1%">Link</th>
+                <th width="1%">Changelog</th>
+                <th width="10%">Created At</th>
               </tr>
             </thead>
             <tbody>
@@ -62,7 +54,6 @@
                   <td class="cell-ellipsis">
                     {{ value.store_branch }}
                   </td>
-
                   <td class="cell-ellipsis">
                     {{ value.store_name }}
                   </td>
@@ -70,47 +61,7 @@
                     {{ value.store_owner_name }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.age }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.contact_number }}
-                  </td>
-                  <td class="cell-ellipsis">NA {{ value.house_number }}</td>
-                  <td class="cell-ellipsis">
-                    {{ value.street }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.barangay }}
-                  </td>
-                  <td class="cell-ellipsis">
-                    {{ value.town_city }}
-                  </td>
-                  <td class="cell-ellipsis">
                     {{ value.created_at }}
-                  </td>
-                  <td>
-                    <template>
-                      <!-- <router-link
-                        :to="{
-                          name: 'administrator-edit',
-                          params: { id: value.id },
-                        }"
-                        tag="a"
-                      >
-                        Edit Info
-                      </router-link>
-                      | -->
-                      <a
-                        href="#"
-                        @click="archive(value.id)"
-                        class="text-danger"
-                      >
-                        Delete</a
-                      >
-                    </template>
-                    <template v-if="filter.status_option_id == 2">
-                      <a href="#" @click="restore(value.id)"> Restore</a>
-                    </template>
                   </td>
                 </tr>
               </template>

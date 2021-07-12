@@ -42,7 +42,7 @@
                 <th width="25%">Province</th>
                 <th width="25%">City</th>
                 <th width="25%">Created At</th>
-                <th width="25%">Actions</th>
+                <th width="5%">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -55,7 +55,7 @@
                     {{ value.city }}
                   </td>
                   <td class="cell-ellipsis">
-                    2021-07-10T07:16:09.000000Z
+                    7/10/2021, 3:16:09 PM
                     <!-- {{ value.created_at }} -->
                   </td>
                   <td>

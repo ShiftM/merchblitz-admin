@@ -27,6 +27,7 @@ import RecordsRouter from "./views/records/records.router";
 import InventoriesRouter from "./views/inventories/inventories.router";
 import StoresRouter from "./views/stores/stores.router";
 import LocationsRouter from "./views/locations/locations.router";
+import AppsRouter from "./views/apps/apps.router";
 
 // Containers
 const DefaultContainer = () => import('@/components/containers/DefaultContainer')
@@ -346,6 +347,15 @@ function configRoutes() {
           name: 'Locations',
           component: () => import('./views/locations/locations.component.vue'),
           children: LocationsRouter,
+          meta: {
+            level: 'parent'
+          }
+        },
+        {
+          path: '/apps',
+          name: 'Mobile Applications',
+          component: () => import('./views/apps/apps.component.vue'),
+          children: AppsRouter,
           meta: {
             level: 'parent'
           }

@@ -1,8 +1,6 @@
 import {alertService} from "../../services/alert/alert.service";
 import {storeService} from "../../services/store/store.service";
 
-import provinces from "../../../public/img/provinces.json"
-
 
 export default {
     data: () => {
@@ -26,9 +24,11 @@ export default {
 
         await this.list(this.filter);
         // FORMAT DATA 
+        this.data.data.map((val)=>{ 
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            return val;
+        })
 
-        // console.log(provinces)
-        // console.log( administratorService.list(this.filter));
     },
     methods: {
         async test(value) {
@@ -40,8 +40,9 @@ export default {
             await this.list(this.filter);
         },
         async list(data) {
-            this.data  = provinces 
-            console.log(this.data)
+            this.data  = await storeService.list(data) 
+            this.data.data = this.data.data.reverse()
+
         },
         async paginate(page) {
             this.filter.page = page;

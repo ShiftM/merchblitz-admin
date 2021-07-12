@@ -24,9 +24,11 @@ export default {
     async mounted() {
 
         await this.list(this.filter);
-
-        // await this.suggest({});
-
+        this.data.data.map((val)=>{ 
+            val.updated_at = new Date(val.updated_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            return val;
+        })
     },
     methods: {
         async test(value) {

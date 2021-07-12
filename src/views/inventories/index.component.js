@@ -25,6 +25,10 @@ export default {
 
         await this.list(this.filter);
         // FORMAT DATA 
+        this.data.data.map((val)=>{ 
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            return val;
+        })
     },
     methods: {
         async test(value) {
@@ -39,7 +43,7 @@ export default {
             
         
             this.data  = await inventoryService.list(data)
-            console.log(JSON.stringify(this.data))
+            this.data.data = this.data.data.reverse()
 
         },
         async paginate(page) {

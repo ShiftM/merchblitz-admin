@@ -63,7 +63,7 @@
                 <th width="20%">Cigarrete Variant</th>
                 <th width="10%">Created At</th>
                 <th width="10%">Updated At</th>
-                <th width="10%">Actions</th>
+                <th width="5%">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@
                   </td>
                   <td>
                     <template>
-                      <router-link
+                      <!-- <router-link
                         :to="{
                           name: 'administrator-edit',
                           params: { id: value.id },
@@ -92,7 +92,7 @@
                       >
                         Edit Info
                       </router-link>
-                      |
+                      | -->
                       <a
                         href="#"
                         @click="archive(value.id)"

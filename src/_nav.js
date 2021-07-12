@@ -44,6 +44,11 @@ export default {
         },
       ]
     },
+        {
+      name: 'Mobile Application',
+      url: '/apps',
+      icon: 'icon-location-pin',
+    },
 
   ]
 }

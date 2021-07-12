@@ -27,6 +27,11 @@ export default {
         await this.list(this.filter);
         // FORMAT DATA 
 
+        this.data.data.map((val)=>{ 
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            return val;
+        })
+
         // console.log(provinces)
         // console.log( administratorService.list(this.filter));
     },
@@ -41,7 +46,6 @@ export default {
         },
         async list(data) {
             this.data  = provinces 
-            console.log(this.data)
         },
         async paginate(page) {
             this.filter.page = page;

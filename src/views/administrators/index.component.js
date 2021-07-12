@@ -26,7 +26,10 @@ export default {
     async mounted() {
 
         await this.list(this.filter);
-
+        this.data.data.map((val)=>{ 
+            val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
+            return val;
+        })
         // console.log( administratorService.list(this.filter));
 
         await this.suggest({});

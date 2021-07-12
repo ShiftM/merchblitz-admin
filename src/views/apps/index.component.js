@@ -1,7 +1,5 @@
 import {alertService} from "../../services/alert/alert.service";
-import {recordService} from "../../services/record/record.service";
 
-import {debounce} from "debounce";
 
 export default {
     data: () => {
@@ -63,7 +61,7 @@ export default {
             
         
             this.data  = await recordService.list(data)
-            this.data.data = this.data.data.reverse()
+
         },
         async paginate(page) {
             this.filter.page = page;

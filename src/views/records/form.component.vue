@@ -21,7 +21,7 @@
             <label for="lastname">Banner: {{ data.banner }}</label><br />
             <label for="firstname">Cash Mat: {{ data.cash_mat }}</label><br />
             <label for="firstname">Poster: {{ data.poster }}</label><br />
-            <label for="firstname">Grill Taler: {{ data.grill_talker }}</label><br />
+            <label for="firstname">Grill Talker: {{ data.grill_talker }}</label><br />
             <label for="firstname">Signature: {{ data.store_signage }}</label><br />
             <label for="firstname">Wall Sticker: {{ data.wall_sticker }}</label><br />
             <label for="firstname">Flange: {{ data.flange }}</label>

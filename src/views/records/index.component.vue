@@ -35,6 +35,19 @@
         </div>
       </div>
       <div class="col-12 mt-3">
+         <paginate
+          v-model="filter.page"
+          :page-count="toPageCount(data.total, data.per_page)"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :next-class="'page-link'"
+          :prev-class="'page-link'"
+          :page-class="'page-item'"
+          :page-link-class="'page-link'"
+          :click-handler="paginate"
+        ></paginate>
+        
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -92,7 +105,7 @@
                     {{ value.poster }}
                   </td>
                   <td class="cell-ellipsis">
-                    {{ value.flange }}
+                    0 {{ value.flange }}
                   </td>
                   <td class="cell-ellipsis">
                     {{ value.grill_talker }}
@@ -187,18 +200,7 @@
             found
           </p>
         </div>
-        <paginate
-          v-model="filter.page"
-          :page-count="toPageCount(data.total, data.per_page)"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'pagination'"
-          :next-class="'page-link'"
-          :prev-class="'page-link'"
-          :page-class="'page-item'"
-          :page-link-class="'page-link'"
-          :click-handler="paginate"
-        ></paginate>
+       
       </div>
     </div>
   </div>

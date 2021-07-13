@@ -9,7 +9,7 @@ export default {
             data: [],
             filter: {
                 paginate: true,
-                per_page: 20,
+                per_page: 500,
                 page: 1,
                 status_option_id: 1,
                 related_status_option_id: 1,

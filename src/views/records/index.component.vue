@@ -25,17 +25,25 @@
               <i class="icon-refresh"></i>
             </button>
           </span>
-          <datalist id="items" width="100%">
+          <!-- <datalist id="items" width="100%">
             <option
               v-for="(value, key) in suggestions.data"
               :value="value.name"
               @click="search({})"
             />
-          </datalist>
+          </datalist> -->
+          <vue-excel-xlsx
+            :data="data.data"
+            :columns="columns"
+            :filename="'Merchblitz_Extracted_' + Date.now()"
+            :sheetname="'sheetname'"
+          >
+            Download All Reports
+          </vue-excel-xlsx>
         </div>
       </div>
       <div class="col-12 mt-3">
-         <paginate
+        <paginate
           v-model="filter.page"
           :page-count="toPageCount(data.total, data.per_page)"
           :prev-text="'Prev'"
@@ -47,7 +55,7 @@
           :page-link-class="'page-link'"
           :click-handler="paginate"
         ></paginate>
-        
+
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -104,9 +112,7 @@
                   <td class="cell-ellipsis">
                     {{ value.poster }}
                   </td>
-                  <td class="cell-ellipsis">
-                    0 {{ value.flange }}
-                  </td>
+                  <td class="cell-ellipsis">0 {{ value.flange }}</td>
                   <td class="cell-ellipsis">
                     {{ value.grill_talker }}
                   </td>
@@ -200,7 +206,6 @@
             found
           </p>
         </div>
-       
       </div>
     </div>
   </div>

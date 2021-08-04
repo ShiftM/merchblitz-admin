@@ -20,11 +20,11 @@
     <div class="tab-content">
       <div class="col-12 mt-3">
         <div class="input-group">
-          <span class="input-group-append">
-            <button class="btn btn-danger" @click="clear()">
+          <!-- <span class="input-group-append">
+            <button class="btn btn-danger" @click="list(this.filter)">
               <i class="icon-refresh"></i>
             </button>
-          </span>
+          </span> -->
           <!-- <datalist id="items" width="100%">
             <option
               v-for="(value, key) in suggestions.data"
@@ -33,7 +33,7 @@
             />
           </datalist> -->
           <vue-excel-xlsx
-            :data="data.data"
+            :data="middledata.data"
             :columns="columns"
             :filename="'Merchblitz_Extracted_' + Date.now()"
             :sheetname="'sheetname'"
@@ -43,19 +43,39 @@
         </div>
       </div>
       <div class="col-12 mt-3">
-        <paginate
-          v-model="filter.page"
-          :page-count="toPageCount(data.total, data.per_page)"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'pagination'"
-          :next-class="'page-link'"
-          :prev-class="'page-link'"
-          :page-class="'page-item'"
-          :page-link-class="'page-link'"
-          :click-handler="paginate"
-        ></paginate>
-
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <paginate
+              v-model="filter.page"
+              :page-count="toPageCount(data.total, data.per_page)"
+              :prev-text="'Prev'"
+              :next-text="'Next'"
+              :container-class="'pagination'"
+              :next-class="'page-link'"
+              :prev-class="'page-link'"
+              :page-class="'page-item'"
+              :page-link-class="'page-link'"
+              :click-handler="paginate"
+            ></paginate>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="row">
+              <div class="col">
+                <input
+                  type="email"
+                  v-model="filter.per_page"
+                  class="form-control"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="col">
+                <button class="btn btn-danger" @click="reload()">
+                  <i class="icon-refresh"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="table-responsive">
           <table class="table">
             <thead>

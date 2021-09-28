@@ -3,8 +3,11 @@ import { recordService } from "../../services/record/record.service";
 
 import VueExcelXlsx from "vue-excel-xlsx";
 import Vue from "vue";
+import VueScrollingTable from "vue-scrolling-table"
+import "vue-scrolling-table/dist/style.css"
 
 Vue.use(VueExcelXlsx);
+Vue.use(VueScrollingTable);
 
 
 export default {
@@ -14,7 +17,7 @@ export default {
             middledata: [],
             filter: {
                 paginate: true,
-                per_page: 500,
+                per_page: 2000,
                 page: 1,
                 status_option_id: 1,
                 related_status_option_id: 1,

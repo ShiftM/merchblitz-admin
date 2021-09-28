@@ -13,6 +13,8 @@ import Swal from 'vue-swal';
 import vSelect from 'vue-select'
 import Spinner from './components/Spinner.vue'
 import AppMixin from './app.mixin';
+
+
 Vue.component('paginate', Paginate)
 Vue.component('v-select', vSelect)
 Vue.component('spinner', Spinner)

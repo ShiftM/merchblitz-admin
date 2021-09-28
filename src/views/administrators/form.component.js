@@ -50,8 +50,9 @@ export default {
         },
         info :{
             adminType: [
-                {id: 1, name: 'Super User', slug: 'super-user'},
-                {id: 2, name: 'Company User', slug: 'compoany-user'}
+                {id: 1, name: 'Merchblitz User', slug: 'merch-user'},
+                {id: 2, name: 'Admin', slug: 'admin-user'},
+                {id: 3, name: 'Super Admin', slug: 'super-admin-user'}
             ],  
             genderType: [
                 {id: 1, name: 'Male', slug: 'male'},

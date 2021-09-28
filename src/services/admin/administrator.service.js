@@ -6,7 +6,7 @@ var promise;
 
 export default class AdministratorService {
     store(data) {
-        promise = api.client.post(config.end_point.admin.management.administrator + '/create', data);
+        promise = api.client.post('api/register/', data);
         return promise;
     }
 
@@ -26,7 +26,7 @@ export default class AdministratorService {
     }
 
     delete(id) {
-        promise = api.client.delete(config.end_point.admin.management.administrator + '/delete/' + id);
+        promise = api.client.delete('api/delete-user/' + id);
         return promise;
     }
 

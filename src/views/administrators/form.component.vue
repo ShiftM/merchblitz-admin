@@ -4,7 +4,7 @@
       <div class="row" >
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="Title">Administrator Username</label>
+            <label for="Title">Username</label>
             <input  type="text" v-model="data.name" class="form-control"
                     placeholder="Username"
                     v-bind:class="{ 'error-border': errors.name}" id="Title"/>
@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            <label for="Title">Administrator Email</label>
+            <label for="Title">Email</label>
             <input type="email" v-model="data.email" class="form-control"
                     placeholder="Email"
                     v-bind:class="{ 'error-border': errors.email}" id="Title"/>
@@ -26,7 +26,7 @@
      
       <div class="row">
         <div class="col-12 mb-2">
-          <label>Administrator Type</label>
+          <label>User Type</label>
           <span class="text-danger"> *</span>
           <select class="form-control" v-model="data.account_type">
             <option v-for="(admin, key) in info.adminType" :key="key" v-bind:value="admin.slug">{{admin.name}}</option>

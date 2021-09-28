@@ -17,7 +17,7 @@ export default {
             middledata: [],
             filter: {
                 paginate: true,
-                per_page: 2000,
+                per_page: 1000,
                 page: 1,
                 status_option_id: 1,
                 related_status_option_id: 1,

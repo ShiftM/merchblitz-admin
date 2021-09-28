@@ -3,9 +3,9 @@
     
     <template slot="header" >
       <img
-        :src="base_url+'img/user3.png'"
+        :src="'https://res.cloudinary.com/aqube/image/upload/v1632801840/MerchBlitz/user3_ycnfed.png'"
         class="img-avatar"
-        alt="admin@questrewards.com" />
+        alt="Profile" />
         
         <span class="pr-2 m-0">Howdy, Admin</span>
     </template>\

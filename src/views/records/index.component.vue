@@ -153,7 +153,7 @@
                     <!-- {{ value.products }} -->
                     <div class="column" style="display: flex">
                       <div
-                        v-for="(item, key) in value.products[0]"
+                        v-for="(item, key) in value.products[0].slice(0, 5)"
                         :key="item.id"
                       >
                         <div

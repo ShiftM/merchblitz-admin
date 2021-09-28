@@ -2,8 +2,8 @@
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full" :src="base_url+'img/qr-logo.png'" width="50" height="auto" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" :src="base_url+'img/qr-logo.png'" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" :src="'https://res.cloudinary.com/aqube/image/upload/v1632801831/MerchBlitz/logo-symbol_n8j0g8.png'" width="50" height="auto" alt="GVE Logo">
+        <img class="navbar-brand-minimized" :src="'https://res.cloudinary.com/aqube/image/upload/v1632801831/MerchBlitz/logo-symbol_n8j0g8.png'" width="30" height="30" alt="GVE Logo">
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">

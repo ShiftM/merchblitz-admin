@@ -7,7 +7,7 @@
             <div class="card-group">
               <div class="card login-form p-4">
                 <div class="card-body text-center">
-                  <img src="/img/qr-logo.png" alt="" class="w-100" />
+                  <img src="https://res.cloudinary.com/aqube/image/upload/v1632801831/MerchBlitz/logo-symbol_n8j0g8.png" alt="" class="w-100" />
 
                   <form @submit.prevent="login()">
                     <p class="text-muted">Sign In to your account</p>

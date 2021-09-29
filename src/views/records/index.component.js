@@ -215,6 +215,21 @@ export default {
                     label: 'MARLBORO GOLD',
                     field: 'marlborogold_packssold',
                 },
+
+                {
+                    label: 'MARLBORO RED',
+                    field: 'marlborored_availability',
+                },
+                {
+                    label: 'MARLBORO RED',
+                    field: 'marlborored_price',
+                },
+                {
+                    label: 'MARLBORO RED',
+                    field: 'marlborored_packssold',
+                },
+
+
                 {
                     label: 'MARLBORO ICE BLAST',
                     field: 'marlboroiceblast_availability',
@@ -770,15 +785,16 @@ export default {
             this.data.data = this.data.data.reverse()
             this.middledata = this.data
 
+            console.log(this.data)
             // Prepare the sheet
-            this.iterate() 
+            this.iterate()
         },
 
         async reload() {
 
             await this.list(this.filter);
             // FORMAT DATA 
-    
+
             this.data.data.map((val) => {
                 val.report_by = JSON.parse(val.report_by)
                 val.created_at = new Date(val.created_at).toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' })
@@ -789,7 +805,7 @@ export default {
         async clear() {
             // this.filter.name = '';
             // this.search();
-            console.log(this.columns)
+            // console.log(this.columns)
 
         },
         async iterate() {
@@ -826,6 +842,10 @@ export default {
                 val.marlborogold_availability = 'N/A'
                 val.marlborogold_price = 'N/A'
                 val.marlborogold_packssold = 'N/A'
+                val.marlborored_availability = 'N/A'
+                val.marlborored_price = 'N/A'
+                val.marlborored_packssold = 'N/A'
+
                 val.marlboroiceblast_availability = 'N/A'
                 val.marlboroiceblast_price = 'N/A'
                 val.marlboroiceblast_packssold = 'N/A'
@@ -952,6 +972,8 @@ export default {
                 val.union_availability = 'N/A'
                 val.union_price = 'N/A'
                 val.union_packssold = 'N/A'
+                val.report_by = JSON.parse(val.report_by).name
+                // console.log(JSON.parse(val.report_by))
                 // ITERATE THROUGH EACH PRODUCT
                 val.products[0].map((product) => {
                     // ITERATE THROUGH COLUMN DATA
@@ -1096,6 +1118,21 @@ export default {
                                             break;
                                     }
                                     break;
+                                case "MARLBORO RED":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.marlborored_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.marlborored_price = product.price
+                                            break;
+                                        case 2:
+                                            val.marlborored_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+
                                 case "MARLBORO GOLD":
                                     // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
                                     switch (matchCount) {

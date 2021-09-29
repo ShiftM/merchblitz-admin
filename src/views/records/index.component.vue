@@ -176,7 +176,7 @@
                   </td>
                   <td class="cell-ellipsis">
                     <div style="min-width: 100px; margin: 3px">
-                      id: {{ value.report_by.id }}, {{ value.report_by.name }}
+                      id: {{ value.report_by }}
                     </div>
                   </td>
                   <td class="cell-ellipsis">

@@ -17,7 +17,7 @@ export default {
             middledata: [],
             filter: {
                 paginate: true,
-                per_page: 1000,
+                per_page: 100,
                 page: 1,
                 status_option_id: 1,
                 related_status_option_id: 1,
@@ -782,7 +782,7 @@ export default {
         },
         async list(data) {
             this.data = await recordService.list(data)
-            this.data.data = this.data.data.reverse()
+            // this.data.data = this.data.data.reverse()
             this.middledata = this.data
 
             console.log(this.data)
@@ -1749,7 +1749,7 @@ export default {
                 // tempSheet.push(tempVal)
             })
 
-            // console.log(tempSheet)
+            console.log('Donw Fetching...')
         },
 
         async paginate(page) {

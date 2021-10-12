@@ -149,8 +149,7 @@
                   <td class="cell-ellipsis">
                     {{ value.store_signage }}
                   </td>
-                  <td class="cell-ellipsis">
-                    <!-- {{ value.products }} -->
+                  <td v-if="value.products != []" class="cell-ellipsis">
                     <div class="column" style="display: flex">
                       <div
                         v-for="(item, key) in value.products[0].slice(0, 5)"

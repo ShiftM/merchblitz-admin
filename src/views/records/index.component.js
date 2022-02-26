@@ -8,6 +8,7 @@ import "vue-scrolling-table/dist/style.css"
 
 Vue.use(VueExcelXlsx);
 Vue.use(VueScrollingTable);
+import mainData from "../../../public/img/sample.json"
 
 
 export default {
@@ -737,6 +738,84 @@ export default {
                 },
 
                 {
+                    label: 'CHESTERFIELD COOL REMIX',
+                    field: 'chesterfieldcoolremix_availability',
+                },
+                {
+                    label: 'CHESTERFIELD COOL REMIX',
+                    field: 'chesterfieldcoolremix_price',
+                },
+                {
+                    label: 'CHESTERFIELD COOL REMIX',
+                    field: 'chesterfieldcoolremix_packssold',
+                },
+
+                {
+                    label: 'CHESTERFIELD FULL FLAVOR',
+                    field: 'chesterfieldfullremix_availability',
+                },
+                {
+                    label: 'CHESTERFIELD FULL FLAVOR',
+                    field: 'chesterfieldfullremix_price',
+                },
+                {
+                    label: 'CHESTERFIELD FULL FLAVOR',
+                    field: 'chesterfieldfullremix_packssold',
+                },
+
+                {
+                    label: 'CHESTERFIELD RED',
+                    field: 'chesterfieldred_availability',
+                },
+                {
+                    label: 'CHESTERFIELD RED',
+                    field: 'chesterfieldred_price',
+                },
+                {
+                    label: 'CHESTERFIELD RED',
+                    field: 'chesterfieldred_packssold',
+                },
+
+                {
+                    label: 'CHESTERFIELD REMIX COOL',
+                    field: 'chesterfieldremixcool_availability',
+                },
+                {
+                    label: 'CHESTERFIELD REMIX COOL',
+                    field: 'chesterfieldremixcool_price',
+                },
+                {
+                    label: 'CHESTERFIELD REMIX COOL',
+                    field: 'chesterfieldremixcool_packssold',
+                },
+
+                {
+                    label: 'CHESTERFIELD SUMMER',
+                    field: 'chesterfieldsummer_availability',
+                },
+                {
+                    label: 'CHESTERFIELD SUMMER',
+                    field: 'chesterfieldsummer_price',
+                },
+                {
+                    label: 'CHESTERFIELD SUMMER',
+                    field: 'chesterfieldsummer_packssold',
+                },
+
+                {
+                    label: 'MIGHTY MAX COOL',
+                    field: 'mightymaxcool_availability',
+                },
+                {
+                    label: 'MIGHTY MAX COOL',
+                    field: 'mightymaxcool_price',
+                },
+                {
+                    label: 'MIGHTY MAX COOL',
+                    field: 'mightymaxcool_packssold',
+                },
+
+                {
                     label: "report_by",
                     field: "report_by",
                 },
@@ -782,10 +861,11 @@ export default {
         },
         async list(data) {
             this.data = await recordService.list(data)
+            this.data = mainData
+
             // this.data.data = this.data.data.reverse()
             this.middledata = this.data
 
-            console.log(this.data)
             // Prepare the sheet
             this.iterate()
         },
@@ -972,6 +1052,28 @@ export default {
                 val.union_availability = 'N/A'
                 val.union_price = 'N/A'
                 val.union_packssold = 'N/A'
+
+                val.chesterfieldcoolremix_availability = 'N/A'
+                val.chesterfieldcoolremix_price = 'N/A'
+                val.chesterfieldcoolremix_packssold = 'N/A'
+                val.chesterfieldfullremix_availability = 'N/A'
+                val.chesterfieldfullremix_price = 'N/A'
+                val.chesterfieldfullremix_packssold = 'N/A'
+                val.chesterfieldred_availability = 'N/A'
+                val.chesterfieldred_price = 'N/A'
+                val.chesterfieldred_packssold = 'N/A'
+
+                val.chesterfieldremixcool_availability = 'N/A'
+                val.chesterfieldremixcool_price = 'N/A'
+                val.chesterfieldremixcool_packssold = 'N/A'
+
+                val.chesterfieldsummer_availability = 'N/A'
+                val.chesterfieldsummer_price = 'N/A'
+                val.chesterfieldsummer_packssold = 'N/A'
+
+                val.mightymaxcool_availability = 'N/A'
+                val.mightymaxcool_price = 'N/A'
+                val.mightymaxcool_packssold = 'N/A'
                 val.report_by = JSON.parse(val.report_by).name
                 // console.log(JSON.parse(val.report_by))
                 // ITERATE THROUGH EACH PRODUCT
@@ -1736,6 +1838,90 @@ export default {
                                             break;
                                     }
                                     break;
+                                case "CHESTERFIELD COOL REMIX":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.chesterfieldcoolremix_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.chesterfieldcoolremix_price = product.price
+                                            break;
+                                        case 2:
+                                            val.chesterfieldcoolremix_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+                                case "CHESTERFIELD FULL FLAVOR":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.chesterfield_full_remix_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.chesterfield_full_remix_price = product.price
+                                            break;
+                                        case 2:
+                                            val.chesterfield_full_remix_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+                                case "CHESTERFIELD RED":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.chesterfieldred_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.chesterfieldred_price = product.price
+                                            break;
+                                        case 2:
+                                            val.chesterfieldred_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+                                case "CHESTERFIELD REMIX COOL":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.chesterfieldremixcool_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.chesterfieldremixcool_price = product.price
+                                            break;
+                                        case 2:
+                                            val.chesterfieldremixcool_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+                                case "CHESTERFIELD SUMMER":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.chesterfieldsummer_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.chesterfieldsummer_price = product.price
+                                            break;
+                                        case 2:
+                                            val.chesterfieldsummer_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
+                                case "MIGHTY MAX COOL":
+                                    // FOR THE NEXT 3 ITERATIONS PUT IN DATA IN COLUMNS
+                                    switch (matchCount) {
+                                        case 0:
+                                            val.mightymaxcool_availability = 'Y'
+                                            break;
+                                        case 1:
+                                            val.mightymaxcool_price = product.price
+                                            break;
+                                        case 2:
+                                            val.mightymaxcool_packssold = product['packs-sold']
+                                            break;
+                                    }
+                                    break;
                             }
                             matchCount++
 
@@ -1749,7 +1935,7 @@ export default {
                 // tempSheet.push(tempVal)
             })
 
-            console.log('Donw Fetching...')
+            console.log('Done Fetching...')
         },
 
         async paginate(page) {
